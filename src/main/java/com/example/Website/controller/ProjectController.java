@@ -23,6 +23,12 @@ public class ProjectController {
         return ResponseEntity.ok(projectService.getAllProjects());
     }
 
+    @GetMapping("/{id}")
+    public ProjectResponseDto getProjectById(@PathVariable Long id) {
+        return projectService.getProjectById(id);
+    }
+
+
     // POST /api/projects
     @PostMapping
     public ResponseEntity<ProjectResponseDto> createProject(

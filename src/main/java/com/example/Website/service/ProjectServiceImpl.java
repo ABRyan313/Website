@@ -25,6 +25,14 @@ public class ProjectServiceImpl implements ProjectService {
     }
 
     @Override
+    public ProjectResponseDto getProjectById(Long id) {
+        ProjectEntity project = projectRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Project not found"));
+
+        return mapToResponse(project);
+    }
+    
+    @Override
     public ProjectResponseDto createProject(ProjectRequestDto dto) {
         ProjectEntity project = new ProjectEntity();
         applyDto(project, dto);
@@ -39,7 +47,6 @@ public class ProjectServiceImpl implements ProjectService {
                 .orElseThrow(() -> new RuntimeException("Project not found"));
 
         applyDto(project, dto);
-        project.setUpdatedDate(LocalDate.now());
 
         return mapToResponse(projectRepository.save(project));
     }

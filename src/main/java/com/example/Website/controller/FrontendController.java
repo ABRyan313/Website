@@ -12,8 +12,12 @@ import org.springframework.web.bind.annotation.GetMapping;
  */
 @Controller
 public class FrontendController {
-    @GetMapping("/{path:^(?!api|h2-console).*$}")
+
+    @GetMapping(value = {
+            "/{path:^(?!api).*$}",
+            "/{path:^(?!api).*$}/**"
+    })
     public String forward() {
-        return "forward:/index.html";
+        return "forward:/";
     }
 }

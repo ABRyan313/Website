@@ -7,7 +7,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class FrontendController {
     @GetMapping({
             "/",
-            "/admin/**"
+            "/admin",
+            "/admin/**",
+            "/projects",
+            "/about",
+            "/contact"
     })
     public String forwardReactRoutes() {
         return "forward:/index.html";

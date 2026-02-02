@@ -7,7 +7,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class FrontendController {
     @GetMapping({
             "/",
-            "/admin",
             "/admin/**",
             "/projects",
             "/about",
